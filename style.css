@@ -63,3 +63,9 @@
   width: 100px;
   margin: 10px;
 }
+
+.card-front {
+  transform: rotateY(180deg);
+  transition: ease 1s;
+  background-color: black;
+}
