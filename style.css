@@ -1,65 +1,65 @@
 .easy h1 {
-
-
 }
 
 .medium h1 {
-
-
 }
 
 .hard h1 {
-
-
 }
 
 .easy .card {
-
-
 }
 
 .medium .card {
-
-
 }
 
 .hard .card {
-
 }
 
-.headerpg {
-    display: flex;
-    justify-content: space-between;
+.playing-game {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+#header-pg {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.level-btn,
+.mute-btn {
+  width: 75px;
+  height: 50px;
 }
 
 .choosing-level {
-    display: none;
+  display: none;
 }
 
 .welcome {
-    display: none;
+  display: none;
 }
 
 .game-control {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
-
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; */
-    /* repeat(3, auto);  */
-    width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 400px;
 }
 
 .card {
-    background-color: pink;
-    height: 50px;
-    width: 100px;
-    margin: 10px;
+  background-color: pink;
+  height: 50px;
+  width: 100px;
+  margin: 10px;
 }
