@@ -1,20 +1,16 @@
-.easy h1 {
+/* .easy h1 {
+    background-color: green;
 }
 
 .medium h1 {
+    background-color: yellow;
 }
 
 .hard h1 {
-}
+    background-color: red;
+} */
 
-.easy .card {
-}
 
-.medium .card {
-}
-
-.hard .card {
-}
 
 .playing-game {
   display: flex;
@@ -54,18 +50,45 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 400px;
+  width: 480px;
 }
 
 .card {
-  background-color: pink;
-  height: 50px;
+
+  height: 100px;
   width: 100px;
   margin: 10px;
+  position: relative;
+  perspective: 100px;
 }
 
-.card-front {
+/* .card-front {
   transform: rotateY(180deg);
   transition: ease 1s;
   background-color: black;
+} */
+
+.card .front, .card .back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform 0.5s;
+}
+
+.card .front {
+  transform: rotateY(180deg);
+}
+
+.card .back {
+  transform: rotateY(0deg);
+  background-color: pink;
+}
+
+.flipped .front{
+  transform: rotateY(0deg);
+} 
+
+.flipped .back {
+  transform: rotateY(-180deg);
 }

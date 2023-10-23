@@ -7,30 +7,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <section class="easy">
-        <!-- CHOSING DIFFICULTY -->
-        <section class="choosing-level">
-          <button>EASY</button>
-          <button>MEDIUM</button>
-          <button>HARD</button>
-          <button>Start</button>
-        </section>
+    <main class="easy">
+      <!-- CHOSING DIFFICULTY -->
+      <button class="difficultyBtn">EASY</button>
+      <button class="difficultyBtn">MEDIUM</button>
+      <button class="difficultyBtn">HARD</button>
 
-        <!-- BASED ON DIFFICULTY, SHOWS DIFFERENT WELCOME SCREEN TO GAME -->
-        <section class="welcome">
-          <h2>WELCOME</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nam
-            accusantium, quibusdam voluptatum, omnis eos similique cumque
-            excepturi sequi repellendus reprehenderit nemo asperiores. Tempore
-            reiciendis tenetur sed consequatur ullam accusamus?
-          </p>
-        </section>
+      <section class="choosing-level">
+        <button>EASY</button>
+        <button>MEDIUM</button>
+        <button>HARD</button>
+        <button>Start</button>
       </section>
 
+      <!-- BASED ON DIFFICULTY, SHOWS DIFFERENT WELCOME SCREEN TO GAME -->
+      <section class="welcome">
+        <h2>WELCOME</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nam
+          accusantium, quibusdam voluptatum, omnis eos similique cumque
+          excepturi sequi repellendus reprehenderit nemo asperiores. Tempore
+          reiciendis tenetur sed consequatur ullam accusamus?
+        </p>
+      </section>
+
+      <!-- where ever the "easy"/difficulty class is, is where the CSS will change 
+      based on the selection -->
       <!-- THIS IS THE MAIN GAME SCREEN, WHERE YOU CHOSE CARDS N STUFF -->
-      <section class="playing-game">
+      <section class="playing-game easy">
         <div id="header-pg">
           <button class="level-btn">CHANGE LEVEL</button>
           <h2>SLAAAAY</h2>
