@@ -1,10 +1,13 @@
 .easy h1 {
+    background-color: green;
 }
 
 .medium h1 {
+    background-color: yellow;
 }
 
 .hard h1 {
+    background-color: red;
 }
 
 .easy .card {
