@@ -4,6 +4,7 @@
 
 const cardContainer = document.querySelector(".card-container");
 const difficultyBtns = document.querySelectorAll(".difficultyBtn");
+const timer = document.querySelector(".timer");
 
 // FUNCTIONS AND EVENTS ------------
 
@@ -31,11 +32,9 @@ const imageArrayEasy = [
   "assets/frog.jpg",
 ];
 
-
-
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i +1));
+    const randomIndex = Math.floor(Math.random() * (i + 1));
 
     let temp = array[i];
 
@@ -43,10 +42,7 @@ const shuffle = (array) => {
 
     array[randomIndex] = temp;
   }
-
 };
-
-
 
 const populateBoard = () => {
   shuffle(imageArray);
@@ -71,32 +67,87 @@ const populateBoard = () => {
 
 populateBoard();
 
+let cardNodeList = document.querySelectorAll(".card");
+const gameControl = document.querySelector(".game-control");
+
 let firstClicked = null;
 let secondClicked = null;
 let firstClickedElement = null;
 let secondClickedElement = null;
 
-cardContainer.addEventListener("click", (e) => {
-  let card = e.target.parentNode;
-  if (!firstClicked && e.target.classList.contains("back")) {
-   
-    firstClicked = card.querySelector(".front").getAttribute("src");
-    card.classList.add("flipped");
-  } else if (!secondClicked && e.target.classList.contains("back")) {
-    
-    secondClicked = card.querySelector(".front").getAttribute("src");
+const checkWin = (array) => {
+  if (!Array.from(array).some((card) => !card.classList.contains("matched"))) {
+    console.log("You win");
   }
-  if (firstClicked && secondClicked) {
-    if (firstClicked === secondClicked) {
-      console.log("Match");
-      firstClicked = null;
-      secondClicked = null;
-    } else if (firstClicked !== secondClicked) {
-      console.log("Not a match");
-      card.classList.remove("flipped");
-      firstClicked = null;
-      secondClicked = null;
+};
+
+cardContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("back")) {
+    let card = e.target.parentNode;
+    console.dir(card);
+    if (!firstClicked) {
+      firstClicked = card.querySelector(".front").getAttribute("src");
+      firstClickedElement = card; // 1. Store first card element.
+      card.classList.add("flipped");
+    } else if (!secondClicked && card !== firstClickedElement) {
+      // 2. Ensure second card isn't same as first.
+      secondClicked = card.querySelector(".front").getAttribute("src");
+      secondClickedElement = card; // 3. Store second card element.
+      card.classList.add("flipped");
+
+      if (firstClicked === secondClicked) {
+        console.log("Match");
+        firstClickedElement.classList.add("matched");
+        secondClickedElement.classList.add("matched");
+
+        if (checkWin(cardNodeList)) {
+          console.log("you won.");
+        }
+        firstClicked = null;
+        secondClicked = null;
+        firstClickedElement = null;
+        secondClickedElement = null;
+      } else {
+        console.log("Not a match");
+        setTimeout(() => {
+          firstClickedElement.classList.remove("flipped");
+          secondClickedElement.classList.remove("flipped");
+          firstClicked = null;
+          secondClicked = null;
+          firstClickedElement = null;
+          secondClickedElement = null;
+        }, 600);
+        // 4. Flip cards back
+      }
+
+      // 5. Reset after checking match.
     }
   }
-  
+});
+
+let time = 60;
+const updateTimer = () => {
+  timer.textContent = time;
+  time--;
+  console.log(time);
+};
+
+let timerInterval;
+
+gameControl.addEventListener("click", (e) => {
+  if (e.target.classList.contains("reset-btn")) {
+    while (cardContainer.firstChild) {
+      cardContainer.removeChild(cardContainer.firstChild);
+    }
+    populateBoard();
+    cardNodeList = document.querySelectorAll(".card");
+    firstClicked = null;
+    secondClicked = null;
+    firstClickedElement = null;
+    secondClickedElement = null;
+  }
+
+  if (e.target.classList.contains("start-btn")) {
+    setInterval(updateTimer, 1000);
+  }
 });
