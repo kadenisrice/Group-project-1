@@ -16,7 +16,7 @@ const win = document.querySelector(".win");
 const choosingLevel = document.querySelector(".choosing-level");
 const main = document.querySelector("main");
 const playingGame = document.querySelector(".playing-game");
-const levelBtn = document.querySelector(".level-btn")
+const levelBtn = document.querySelector(".level-btn");
 
 // FUNCTIONS AND EVENTS ------------
 const imageArrayHard = [
@@ -37,11 +37,10 @@ const imageArrayHard = [
   "assets/panda.jpg",
   "assets/panda.jpg",
   "assets/puppy.jpg",
-  "assets/puppy.jpg"
+  "assets/puppy.jpg",
 ];
 
 //18
-
 
 const imageArrayMedium = [
   "assets/puppy.jpg",
@@ -70,9 +69,6 @@ const imageArrayEasy = [
 ];
 
 //6
-
-
-
 
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -107,7 +103,6 @@ const populateBoard = (imageArray) => {
   }
 };
 
-
 const determineBoardArray = () => {
   if (main.classList.contains("easy")) {
     populateBoard(imageArrayEasy);
@@ -119,12 +114,7 @@ const determineBoardArray = () => {
   cardNodeList = document.querySelectorAll(".card");
 };
 
-
-
-
-
-
-choosingLevel.addEventListener("click", (e)=> {
+choosingLevel.addEventListener("click", (e) => {
   resetBoard();
   if (e.target.classList.contains("easy-btn")) {
     main.classList.remove("medium", "hard");
@@ -135,7 +125,6 @@ choosingLevel.addEventListener("click", (e)=> {
     main.classList.remove("easy", "hard");
     main.classList.add("medium");
     determineBoardArray();
-
   }
   if (e.target.classList.contains("hard-btn")) {
     main.classList.remove("easy", "medium");
@@ -147,7 +136,6 @@ choosingLevel.addEventListener("click", (e)=> {
     playingGame.style.display = "flex";
     determineBoardArray();
   }
-
 });
 
 let cardNodeList = document.querySelectorAll(".card");
@@ -229,7 +217,7 @@ const updateTimer = () => {
   }
 };
 
-function resetBoard () {
+function resetBoard() {
   while (cardContainer.firstChild) {
     cardContainer.removeChild(cardContainer.firstChild);
   }
@@ -244,11 +232,13 @@ function resetBoard () {
   gameActive = false;
   lose.style.display = "none";
   win.style.display = "none";
-};
+  resultScreen.style.display = "none";
+}
 
 gameControl.addEventListener("click", (e) => {
   if (e.target.classList.contains("reset-btn")) {
     resetBoard();
+    determineBoardArray();
   }
 
   if (e.target.classList.contains("start-btn")) {
@@ -263,14 +253,14 @@ resultScreen.addEventListener("click", (e) => {
   // play again button just resets the board
   if (e.target.classList.contains("play-again")) {
     resetBoard();
+    determineBoardArray();
 
     // set display: none; for result screen after clicking play again
     resultScreen.style.display = "none";
   }
 });
 
-levelBtn.addEventListener("click", ()=>{
+levelBtn.addEventListener("click", () => {
   choosingLevel.style.display = "flex";
   playingGame.style.display = "none";
-
 });
