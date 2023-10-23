@@ -11,9 +11,9 @@
 } */
 
 .playing-game {
-  display: flex;
+  display: none;
+  /* display: flex; */
   flex-direction: column;
-
   align-items: center;
 }
 
@@ -30,7 +30,34 @@
 }
 
 .choosing-level {
-  display: none;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.difficulty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.easy-btn, .medium-btn, .hard-btn {
+  width: 200px;
+  padding: 30px 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.go-btn {
+  padding: 10px 40px;
+  border-radius: 5px;;
 }
 
 .welcome {
@@ -46,16 +73,15 @@
   top: 225px;
   left: 50%;
   transform: translate(-50%);
-}
-
-.win {
-  position: absolute;
   color: white;
 }
 
-.lose {
+.win, .lose {
+  display: none;
   position: absolute;
 }
+
+
 
 .game-control {
   display: flex;

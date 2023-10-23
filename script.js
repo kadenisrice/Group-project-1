@@ -11,10 +11,39 @@ const resultScreen = document.querySelector(".result");
 let time = 59;
 let timerInterval;
 const winMessage = document.querySelector(".win-message");
+const lose = document.querySelector(".lose");
+const win = document.querySelector(".win");
+const choosingLevel = document.querySelector(".choosing-level");
+const main = document.querySelector("main");
+const playingGame = document.querySelector(".playing-game");
+const levelBtn = document.querySelector(".level-btn")
 
 // FUNCTIONS AND EVENTS ------------
+const imageArrayHard = [
+  "assets/puppy.jpg",
+  "assets/puppy.jpg",
+  "assets/kitten.jpg",
+  "assets/kitten.jpg",
+  "assets/frog.jpg",
+  "assets/frog.jpg",
+  "assets/monkey.jpg",
+  "assets/monkey.jpg",
+  "assets/fish.jpg",
+  "assets/fish.jpg",
+  "assets/fish.jpg",
+  "assets/fish.jpg",
+  "assets/panda.jpg",
+  "assets/panda.jpg",
+  "assets/panda.jpg",
+  "assets/panda.jpg",
+  "assets/puppy.jpg",
+  "assets/puppy.jpg"
+];
 
-const imageArray = [
+//18
+
+
+const imageArrayMedium = [
   "assets/puppy.jpg",
   "assets/puppy.jpg",
   "assets/kitten.jpg",
@@ -28,6 +57,8 @@ const imageArray = [
   "assets/panda.jpg",
   "assets/panda.jpg",
 ];
+
+//12
 
 const imageArrayEasy = [
   "assets/puppy.jpg",
@@ -37,6 +68,11 @@ const imageArrayEasy = [
   "assets/frog.jpg",
   "assets/frog.jpg",
 ];
+
+//6
+
+
+
 
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -50,9 +86,9 @@ const shuffle = (array) => {
   }
 };
 
-const populateBoard = () => {
+const populateBoard = (imageArray) => {
   //shuffle(imageArray);
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < imageArray.length; i++) {
     // Create a new card div element
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card"); // Add the "card" class to it
@@ -71,7 +107,48 @@ const populateBoard = () => {
   }
 };
 
-populateBoard();
+
+const determineBoardArray = () => {
+  if (main.classList.contains("easy")) {
+    populateBoard(imageArrayEasy);
+  } else if (main.classList.contains("medium")) {
+    populateBoard(imageArrayMedium);
+  } else if (main.classList.contains("hard")) {
+    populateBoard(imageArrayHard);
+  }
+  cardNodeList = document.querySelectorAll(".card");
+};
+
+
+
+
+
+
+choosingLevel.addEventListener("click", (e)=> {
+  resetBoard();
+  if (e.target.classList.contains("easy-btn")) {
+    main.classList.remove("medium", "hard");
+    main.classList.add("easy");
+    determineBoardArray();
+  }
+  if (e.target.classList.contains("medium-btn")) {
+    main.classList.remove("easy", "hard");
+    main.classList.add("medium");
+    determineBoardArray();
+
+  }
+  if (e.target.classList.contains("hard-btn")) {
+    main.classList.remove("easy", "medium");
+    main.classList.add("hard");
+    determineBoardArray();
+  }
+  if (e.target.classList.contains("go-btn")) {
+    choosingLevel.style.display = "none";
+    playingGame.style.display = "flex";
+    determineBoardArray();
+  }
+
+});
 
 let cardNodeList = document.querySelectorAll(".card");
 const gameControl = document.querySelector(".game-control");
@@ -110,6 +187,7 @@ cardContainer.addEventListener("click", (e) => {
         secondClickedElement.classList.add("matched");
 
         if (checkWin(cardNodeList)) {
+          win.style.display = "block";
           console.log("you won.");
           let timeCompleted = 59 - time;
           winMessage.textContent = `You did it in ${timeCompleted} seconds!`;
@@ -145,18 +223,16 @@ const updateTimer = () => {
   console.log(time);
   if (time < 0) {
     console.log("You lose");
-
+    lose.style.display = "block";
     resultScreen.style.display = "block";
     clearInterval(timerInterval);
   }
 };
 
-const resetBoard = () => {
+function resetBoard () {
   while (cardContainer.firstChild) {
     cardContainer.removeChild(cardContainer.firstChild);
   }
-  populateBoard();
-  cardNodeList = document.querySelectorAll(".card");
   firstClicked = null;
   secondClicked = null;
   firstClickedElement = null;
@@ -166,6 +242,8 @@ const resetBoard = () => {
   startBtn.disabled = false;
   timer.textContent = `01:00`;
   gameActive = false;
+  lose.style.display = "none";
+  win.style.display = "none";
 };
 
 gameControl.addEventListener("click", (e) => {
@@ -189,4 +267,10 @@ resultScreen.addEventListener("click", (e) => {
     // set display: none; for result screen after clicking play again
     resultScreen.style.display = "none";
   }
+});
+
+levelBtn.addEventListener("click", ()=>{
+  choosingLevel.style.display = "flex";
+  playingGame.style.display = "none";
+
 });
