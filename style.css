@@ -37,6 +37,26 @@
   display: none;
 }
 
+.result {
+  display: none;
+  position: absolute;
+  height: 400px;
+  width: 250px;
+  background-color: black;
+  top: 225px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.win {
+  position: absolute;
+  color: white;
+}
+
+.lose {
+  position: absolute;
+}
+
 .game-control {
   display: flex;
   justify-content: center;

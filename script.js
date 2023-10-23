@@ -5,6 +5,12 @@
 const cardContainer = document.querySelector(".card-container");
 const difficultyBtns = document.querySelectorAll(".difficultyBtn");
 const timer = document.querySelector(".timer");
+const startBtn = document.querySelector(".start-btn");
+let gameActive = false;
+const resultScreen = document.querySelector(".result");
+let time = 59;
+let timerInterval;
+const winMessage = document.querySelector(".win-message");
 
 // FUNCTIONS AND EVENTS ------------
 
@@ -45,7 +51,7 @@ const shuffle = (array) => {
 };
 
 const populateBoard = () => {
-  shuffle(imageArray);
+  //shuffle(imageArray);
   for (let i = 0; i < 12; i++) {
     // Create a new card div element
     const cardDiv = document.createElement("div");
@@ -77,11 +83,14 @@ let secondClickedElement = null;
 
 const checkWin = (array) => {
   if (!Array.from(array).some((card) => !card.classList.contains("matched"))) {
-    console.log("You win");
+    return true;
   }
 };
 
 cardContainer.addEventListener("click", (e) => {
+  if (gameActive === false) {
+    return;
+  }
   if (e.target.classList.contains("back")) {
     let card = e.target.parentNode;
     console.dir(card);
@@ -102,6 +111,11 @@ cardContainer.addEventListener("click", (e) => {
 
         if (checkWin(cardNodeList)) {
           console.log("you won.");
+          let timeCompleted = 59 - time;
+          winMessage.textContent = `You did it in ${timeCompleted} seconds!`;
+          console.log(timeCompleted);
+          clearInterval(timerInterval);
+          resultScreen.style.display = "block";
         }
         firstClicked = null;
         secondClicked = null;
@@ -125,29 +139,54 @@ cardContainer.addEventListener("click", (e) => {
   }
 });
 
-let time = 60;
 const updateTimer = () => {
-  timer.textContent = time;
+  timer.textContent = time > 9 ? `00:${time}` : `00:0${time}`;
   time--;
   console.log(time);
+  if (time < 0) {
+    console.log("You lose");
+
+    resultScreen.style.display = "block";
+    clearInterval(timerInterval);
+  }
 };
 
-let timerInterval;
+const resetBoard = () => {
+  while (cardContainer.firstChild) {
+    cardContainer.removeChild(cardContainer.firstChild);
+  }
+  populateBoard();
+  cardNodeList = document.querySelectorAll(".card");
+  firstClicked = null;
+  secondClicked = null;
+  firstClickedElement = null;
+  secondClickedElement = null;
+  clearInterval(timerInterval);
+  time = 59;
+  startBtn.disabled = false;
+  timer.textContent = `01:00`;
+  gameActive = false;
+};
 
 gameControl.addEventListener("click", (e) => {
   if (e.target.classList.contains("reset-btn")) {
-    while (cardContainer.firstChild) {
-      cardContainer.removeChild(cardContainer.firstChild);
-    }
-    populateBoard();
-    cardNodeList = document.querySelectorAll(".card");
-    firstClicked = null;
-    secondClicked = null;
-    firstClickedElement = null;
-    secondClickedElement = null;
+    resetBoard();
   }
 
   if (e.target.classList.contains("start-btn")) {
-    setInterval(updateTimer, 1000);
+    gameActive = true;
+    e.target.disabled = true;
+    timerInterval = setInterval(updateTimer, 1000);
+  }
+});
+
+// Event listener for the results screen
+resultScreen.addEventListener("click", (e) => {
+  // play again button just resets the board
+  if (e.target.classList.contains("play-again")) {
+    resetBoard();
+
+    // set display: none; for result screen after clicking play again
+    resultScreen.style.display = "none";
   }
 });
