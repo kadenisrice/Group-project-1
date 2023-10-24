@@ -105,12 +105,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 330px;
+  width: 400px;
+  padding-top: 30px;
 }
 
 .card {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   margin: 5px;
   position: relative;
   perspective: 100px;
@@ -157,11 +158,11 @@
 
 @media only screen and (min-width: 768px) {
   .card-container {
-    width: 640px;
+    width: 680px;
   }
 
   .card {
-    height: 150px;
-    width: 150px;
+    height: 155px;
+    width: 155px;
   }
 }

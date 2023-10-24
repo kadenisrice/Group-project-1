@@ -34,13 +34,11 @@ const imageArrayHard = [
   "assets/fish.jpg",
   "assets/panda.jpg",
   "assets/panda.jpg",
-  "assets/panda.jpg",
-  "assets/panda.jpg",
   "assets/puppy.jpg",
   "assets/puppy.jpg",
 ];
 
-//18
+//16
 
 const imageArrayMedium = [
   "assets/puppy.jpg",
@@ -66,9 +64,11 @@ const imageArrayEasy = [
   "assets/kitten.jpg",
   "assets/frog.jpg",
   "assets/frog.jpg",
+  "assets/panda.jpg",
+  "assets/panda.jpg",
 ];
 
-//6
+//8
 
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -178,6 +178,7 @@ cardContainer.addEventListener("click", (e) => {
           win.style.display = "block";
           console.log("you won.");
           let timeCompleted = 59 - time;
+          // Add score to local storage
           winMessage.textContent = `You did it in ${timeCompleted} seconds!`;
           console.log(timeCompleted);
           clearInterval(timerInterval);
