@@ -1,7 +1,16 @@
+body {
+  margin: 0;
+}
+
 .easy button {
   background-color: lightblue;
 }
 
+.medium {
+  background: url(/assets/medium/jungle-background-1.jpg);
+  background-size: cover;
+  height: 100vh;
+}
 .medium .card-container {
   width: 390px;
 }
