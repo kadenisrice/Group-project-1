@@ -17,7 +17,9 @@ const choosingLevel = document.querySelector(".choosing-level");
 const main = document.querySelector("main");
 const playingGame = document.querySelector(".playing-game");
 const levelBtn = document.querySelector(".level-btn");
+const muteBtn = document.querySelector(".mute-btn");
 const themeTitle = document.querySelector(".theme-title");
+const mediumMusic = document.getElementById("medium-music");
 
 // FUNCTIONS AND EVENTS ------------
 const imageArrayHard = [
@@ -84,7 +86,7 @@ const shuffle = (array) => {
 };
 
 const populateBoard = (imageArray) => {
-  //shuffle(imageArray);
+  shuffle(imageArray);
   for (let i = 0; i < imageArray.length; i++) {
     // Create a new card div element
     const cardDiv = document.createElement("div");
@@ -136,6 +138,10 @@ choosingLevel.addEventListener("click", (e) => {
     determineBoardArray();
   }
   if (e.target.classList.contains("go-btn")) {
+    if (main.classList.contains("medium")) {
+      mediumMusic.volume = 0.1;
+      mediumMusic.play();
+    }
     choosingLevel.style.display = "none";
     playingGame.style.display = "flex";
     determineBoardArray();
@@ -274,4 +280,13 @@ resultScreen.addEventListener("click", (e) => {
 levelBtn.addEventListener("click", () => {
   choosingLevel.style.display = "flex";
   playingGame.style.display = "none";
+  if (main.classList.contains("medium")) {
+    mediumMusic.pause();
+    mediumMusic.currentTime = 0;
+  }
+});
+
+muteBtn.addEventListener("click", () => {
+  mediumMusic.muted = !mediumMusic.muted;
+  muteBtn.textContent = mediumMusic.muted ? "UNMUTE" : " MUTE ";
 });
