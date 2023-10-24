@@ -17,7 +17,7 @@ body {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .easy .card {
@@ -84,10 +84,114 @@ main {
 .medium {
   background: url(/assets/medium/jungle-background-1.jpg);
   background-size: cover;
-  height: 100vh;
+  font-family: sans-serif;
 }
+.medium .memory-game-title {
+  font-family: "Jungle";
+  font-size: 70px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 50px;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.medium .select-difficulty-p {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.medium .theme-title {
+  font-family: "Jungle";
+  font-size: 65px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.medium .result {
+  background: url(/assets/medium/result-screen-background.png);
+  background-size: cover;
+  border: 5px solid black;
+  color: black;
+}
+.medium .win h2 {
+  font-size: 45px;
+}
+
+.medium .win .win-message {
+  font-size: 15px;
+}
+
+.medium .win h2,
+.medium .win .win-message,
+.medium .lose h2,
+.medium .lose .lose-message {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.medium .level-btn,
+.medium .mute-btn {
+  height: 60px;
+  width: 100px;
+  margin: 20px;
+}
+.medium .level-btn,
+.medium .mute-btn {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.medium .level-btn:hover,
+.medium .mute-btn:hover {
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.medium .timer {
+  font-size: 30px;
+  background-color: #c2fbd7;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 16px 7px black;
+  text-shadow: 0px -2px 4px black;
+}
+
+.medium .game-control {
+  gap: 40px;
+}
+
 .medium .card-container {
   width: 390px;
+  padding: 0;
 }
 
 .medium .card {
@@ -104,8 +208,8 @@ main {
   display: flex;
   align-items: center;
   font-family: inherit;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 20px;
   padding: 20px 40px;
   color: white;
   background: #ad5389;
@@ -142,6 +246,13 @@ main {
   ); /* More noticeable gradient direction change */
   box-shadow: 0 0.2em 0.8em -0.4em #14a73e98; /* Decreased box shadow to give a "pressed" effect */
   transform: scale(0.98); /* Slightly scale down for a "pressed" effect */
+}
+
+.medium .easy-btn,
+.medium .medium-btn,
+.medium .hard-btn {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .hard {
@@ -365,6 +476,18 @@ main {
     perspective: 500px;
   }
 
+  .hard .card {
+    height: 150px;
+    width: 125px;
+    perspective: 500px;
+  }
+
+  .hard .card-container {
+    width: 540px;
+  }
+}
+
+@media only screen and (min-width: 990px) {
   .hard .card {
     height: 150px;
     width: 150px;

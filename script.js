@@ -17,6 +17,7 @@ const choosingLevel = document.querySelector(".choosing-level");
 const main = document.querySelector("main");
 const playingGame = document.querySelector(".playing-game");
 const levelBtn = document.querySelector(".level-btn");
+const themeTitle = document.querySelector(".theme-title");
 
 // FUNCTIONS AND EVENTS ------------
 const imageArrayHard = [
@@ -105,10 +106,13 @@ const populateBoard = (imageArray) => {
 
 const determineBoardArray = () => {
   if (main.classList.contains("easy")) {
+    themeTitle.textContent = "Slaaaay";
     populateBoard(imageArrayEasy);
   } else if (main.classList.contains("medium")) {
     populateBoard(imageArrayMedium);
+    themeTitle.textContent = "THE JUNGLE";
   } else if (main.classList.contains("hard")) {
+    themeTitle.textContent = "Spookville";
     populateBoard(imageArrayHard);
   }
   cardNodeList = document.querySelectorAll(".card");
@@ -175,14 +179,16 @@ cardContainer.addEventListener("click", (e) => {
         secondClickedElement.classList.add("matched");
 
         if (checkWin(cardNodeList)) {
-          win.style.display = "block";
           console.log("you won.");
           let timeCompleted = 59 - time;
           // Add score to local storage
           winMessage.textContent = `You did it in ${timeCompleted} seconds!`;
           console.log(timeCompleted);
           clearInterval(timerInterval);
-          resultScreen.style.display = "flex";
+          setTimeout(() => {
+            win.style.display = "block";
+            resultScreen.style.display = "flex";
+          }, 1000);
         }
         firstClicked = null;
         secondClicked = null;
@@ -212,8 +218,10 @@ const updateTimer = () => {
   console.log(time);
   if (time < 0) {
     console.log("You lose");
-    lose.style.display = "block";
-    resultScreen.style.display = "flex";
+    setTimeout(() => {
+      lose.style.display = "block";
+      resultScreen.style.display = "flex";
+    }, 1000);
     clearInterval(timerInterval);
   }
 };
