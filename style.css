@@ -1,14 +1,59 @@
-/* .easy h1 {
-    background-color: green;
+.easy button {
+  background-color: lightblue;
 }
 
-.medium h1 {
-    background-color: yellow;
+.medium button {
+  background-color: forestgreen;
+  border-radius: 50px;
 }
 
-.hard h1 {
-    background-color: red;
-} */
+.medium #go-btn {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 20px 40px;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 167, 62, 1) 0%,
+    rgba(102, 247, 113, 1) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.medium #go-btn:hover {
+  background: linear-gradient(
+    -15deg,
+    rgba(20, 167, 62, 1) 0%,
+    rgba(102, 247, 113, 1) 100%
+  ); /* Slight gradient direction change */
+  box-shadow: 0 0.6em 1.7em -0.4em #14a73e98; /* Increased box shadow */
+  transform: scale(1.03); /* Slight scale */
+}
+
+.medium #go-btn:active {
+  background: linear-gradient(
+    -30deg,
+    rgba(20, 167, 62, 1) 0%,
+    rgba(102, 247, 113, 1) 100%
+  ); /* More noticeable gradient direction change */
+  box-shadow: 0 0.2em 0.8em -0.4em #14a73e98; /* Decreased box shadow to give a "pressed" effect */
+  transform: scale(0.98); /* Slightly scale down for a "pressed" effect */
+}
+
+.hard button {
+  background-color: red;
+}
 
 .playing-game {
   display: none;
@@ -55,16 +100,6 @@
   text-align: center;
   box-sizing: border-box;
   border-radius: 10px;
-}
-
-.easy-btn:focus {
-  background-color: blue;
-}
-.medium-btn:focus {
-  background-color: green;
-}
-.hard-btn:focus {
-  background-color: red;
 }
 
 .go-btn {
