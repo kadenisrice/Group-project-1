@@ -41,18 +41,18 @@ const imageArrayHard = [
 //16
 
 const imageArrayMedium = [
-  "assets/puppy.jpg",
-  "assets/puppy.jpg",
-  "assets/kitten.jpg",
-  "assets/kitten.jpg",
-  "assets/frog.jpg",
-  "assets/frog.jpg",
-  "assets/monkey.jpg",
-  "assets/monkey.jpg",
-  "assets/fish.jpg",
-  "assets/fish.jpg",
-  "assets/panda.jpg",
-  "assets/panda.jpg",
+  "assets/medium/butterfly-1.png",
+  "assets/medium/butterfly-1.png",
+  "assets/medium/cheetah-1.png",
+  "assets/medium/cheetah-1.png",
+  "assets/medium/frog-1.png",
+  "assets/medium/frog-1.png",
+  "assets/medium/gorilla-1.png",
+  "assets/medium/gorilla-1.png",
+  "assets/medium/snake-1.png",
+  "assets/medium/snake-1.png",
+  "assets/medium/tiger-1.png",
+  "assets/medium/tiger-1.png",
 ];
 
 //12

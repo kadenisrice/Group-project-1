@@ -2,8 +2,17 @@
   background-color: lightblue;
 }
 
+.medium .card-container {
+  width: 390px;
+}
+
+.medium .card {
+  height: 69px;
+  width: 120px;
+}
+
 .medium button {
-  background-color: forestgreen;
+  background-color: #2e7d32;
   border-radius: 50px;
 }
 
@@ -199,5 +208,15 @@
   .card {
     height: 155px;
     width: 155px;
+  }
+
+  .medium .card-container {
+    width: 720px;
+  }
+
+  .medium .card {
+    height: 131px;
+    width: 230px;
+    perspective: 500px;
   }
 }
