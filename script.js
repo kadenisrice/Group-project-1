@@ -218,6 +218,7 @@ const updateTimer = () => {
   console.log(time);
   if (time < 0) {
     console.log("You lose");
+    gameActive = false;
     setTimeout(() => {
       lose.style.display = "block";
       resultScreen.style.display = "flex";

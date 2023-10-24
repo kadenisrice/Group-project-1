@@ -20,13 +20,78 @@ main {
   min-height: 100vh;
 }
 
+.easy {
+  background-image: url(assets/easy/mobile-background-jpeg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.easy button {
+  border: none;
+}
+
+.easy h2 {
+  background-color: rgb(245, 180, 245);
+  color: white;
+  text-shadow: 0 0 5px white;
+  box-shadow: 0px 4px 0 #a049ab7d;
+  border-radius: 10px;
+  padding: 8px 40px;
+  margin-top: 40px;
+  font-size: xx-large;
+  font-family: "CuteJellyFish";
+}
+
+.easy .select-difficulty-p {
+  color: white;
+  text-shadow: 0 0 3px #ff57fd;
+  font-size: larger;
+  background-color: #ffc6fe47;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border-style: dotted;
+  font-family: "CuteJellyFish";
+}
+
+.easy .easy-btn,
+.easy .medium-btn,
+.easy .hard-btn {
+  color: white;
+  text-shadow: 0 0 3px #ff57fd;
+  font-size: larger;
+  padding: 20px 40px;
+  box-shadow: 0px 4px 0 #a049ab7d;
+  font-family: "CuteJellyFish";
+  background-color: rgb(245, 180, 245);
+  border: none;
+  transition-duration: 0.5s;
+}
+
+.easy .easy-btn:hover,
+.easy .medium-btn:hover,
+.easy .hard-btn:hover {
+  background-color: rgb(212, 156, 212);
+  box-shadow: 0px 4px 0 #7032797d;
+}
+
+.easy .go-btn {
+  color: white;
+  text-shadow: 0 0 3px #ff57fd;
+  font-size: larger;
+  padding: 10px 40px;
+  box-shadow: 0px 4px 0 #a049ab7d;
+  font-family: "CuteJellyFish";
+  background-color: rgb(245, 180, 245);
+  border: none;
+}
+
 .easy .card {
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
 }
 
 .easy .card-container {
-  width: 340px;
+  width: 320px;
 }
 
 .easy .card .back {
@@ -36,16 +101,11 @@ main {
   box-shadow: 2px 3px 2px #ffc2f987;
 }
 
-.easy button {
-  background-color: rgb(245, 180, 245);
-  border: none;
-  margin: 10px 10px;
-  border-radius: 10px;
-  padding: 5px 10px;
-}
-
 .easy .level-btn,
 .easy .mute-btn {
+  margin: 15px;
+  background-color: rgb(245, 180, 245);
+  border-radius: 10px;
   width: 67px;
   height: 43px;
   color: white;
@@ -70,14 +130,40 @@ main {
   font-size: larger;
 }
 
-.easy h2 {
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.easy .result {
+  background: url(assets/easy/chrome-heart.gif);
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.easy .win-message,
+.easy .lose-message {
+  color: white;
+  text-shadow: 0 0 3px #ff57fd;
+  font-size: larger;
+}
+
+.easy .play-again {
   background-color: rgb(245, 180, 245);
   color: white;
   text-shadow: 0 0 5px white;
   box-shadow: 0px 4px 0 #a049ab7d;
   border-radius: 10px;
-  padding: 8px 40px;
-  font-size: xx-large;
+  padding: 10px 20px;
+  font-size: larger;
   font-family: "CuteJellyFish";
 }
 
