@@ -20,22 +20,22 @@ const levelBtn = document.querySelector(".level-btn");
 
 // FUNCTIONS AND EVENTS ------------
 const imageArrayHard = [
-  "assets/puppy.jpg",
-  "assets/puppy.jpg",
-  "assets/kitten.jpg",
-  "assets/kitten.jpg",
-  "assets/frog.jpg",
-  "assets/frog.jpg",
-  "assets/monkey.jpg",
-  "assets/monkey.jpg",
-  "assets/fish.jpg",
-  "assets/fish.jpg",
-  "assets/fish.jpg",
-  "assets/fish.jpg",
-  "assets/panda.jpg",
-  "assets/panda.jpg",
-  "assets/puppy.jpg",
-  "assets/puppy.jpg",
+  "assets/hard/hard-boo.jpg",
+  "assets/hard/hard-boo.jpg",
+  "assets/hard/hard-cutie.jpg",
+  "assets/hard/hard-cutie.jpg",
+  "assets/hard/hard-scarecrow.jpg",
+  "assets/hard/hard-scarecrow.jpg",
+  "assets/hard/hard-plaid.jpg",
+  "assets/hard/hard-plaid.jpg",
+  "assets/hard/hard-pumpkin.jpg",
+  "assets/hard/hard-pumpkin.jpg",
+  "assets/hard/hard-pumpkinboy.jpg",
+  "assets/hard/hard-pumpkinboy.jpg",
+  "assets/hard/hard-redscarf.jpg",
+  "assets/hard/hard-redscarf.jpg",
+  "assets/hard/hard-spooky.jpg",
+  "assets/hard/hard-spooky.jpg",
 ];
 
 //16
@@ -182,7 +182,7 @@ cardContainer.addEventListener("click", (e) => {
           winMessage.textContent = `You did it in ${timeCompleted} seconds!`;
           console.log(timeCompleted);
           clearInterval(timerInterval);
-          resultScreen.style.display = "block";
+          resultScreen.style.display = "flex";
         }
         firstClicked = null;
         secondClicked = null;
@@ -197,7 +197,7 @@ cardContainer.addEventListener("click", (e) => {
           secondClicked = null;
           firstClickedElement = null;
           secondClickedElement = null;
-        }, 600);
+        }, 1000);
         // 4. Flip cards back
       }
 
@@ -213,7 +213,7 @@ const updateTimer = () => {
   if (time < 0) {
     console.log("You lose");
     lose.style.display = "block";
-    resultScreen.style.display = "block";
+    resultScreen.style.display = "flex";
     clearInterval(timerInterval);
   }
 };
@@ -222,6 +222,7 @@ function resetBoard() {
   while (cardContainer.firstChild) {
     cardContainer.removeChild(cardContainer.firstChild);
   }
+  // HAAHAHAHAHAHHAHAHAHAHHHAHAHAHAHAHHAHAHA
   firstClicked = null;
   secondClicked = null;
   firstClickedElement = null;

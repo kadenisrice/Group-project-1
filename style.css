@@ -1,4 +1,11 @@
 @font-face {
+  font-family: "Jungle";
+  src: url(/assets/fonts/JungleToJungle-BW5zV.ttf) format("opentype");
+  font-weight: normal;
+  font-size: normal;
+}
+
+@font-face {
   font-family: "CuteJellyFish";
   src: url(assets/fonts/CuteJellyfish-Eaqrg.otf) format("opentype");
   font-weight: normal;
@@ -9,12 +16,69 @@ body {
   margin: 0;
 }
 
+main {
+  height: 100vh;
+}
+
+.easy .card {
+  width: 75px;
+  height: 75px;
+}
+
+.easy .card-container {
+  width: 340px;
+}
+
+.easy .card .back {
+  background-color: rgb(255, 208, 216);
+  background-image: url(assets/easy/Untitled_Artwork.png);
+  background-size: cover;
+  box-shadow: 2px 3px 2px #ffc2f987;
+}
+
 .easy button {
   background-color: rgb(245, 180, 245);
   border: none;
   margin: 10px 10px;
   border-radius: 10px;
   padding: 5px 10px;
+}
+
+.easy .level-btn,
+.easy .mute-btn {
+  width: 67px;
+  height: 43px;
+  color: white;
+  text-shadow: 0 0 5px white;
+  box-shadow: 0px 4px 0 #a049ab7d;
+  font-family: "CuteJellyFish";
+}
+
+.easy .start-btn,
+.easy .reset-btn {
+  background-color: rgb(245, 180, 245);
+  color: white;
+  text-shadow: 0 0 5px white;
+  box-shadow: 0px 4px 0 #a049ab7d;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.easy .timer {
+  color: white;
+  text-shadow: 0 0 3px #ff57fd;
+  font-size: larger;
+}
+
+.easy h2 {
+  background-color: rgb(245, 180, 245);
+  color: white;
+  text-shadow: 0 0 5px white;
+  box-shadow: 0px 4px 0 #a049ab7d;
+  border-radius: 10px;
+  padding: 8px 40px;
+  font-size: xx-large;
+  font-family: "CuteJellyFish";
 }
 
 .medium {
@@ -80,8 +144,71 @@ body {
   transform: scale(0.98); /* Slightly scale down for a "pressed" effect */
 }
 
+.hard {
+  font-family: "Creepster", cursive;
+  color: orange;
+  background: url(assets/hard/pumpkin-2-background.jpeg);
+  background-size: cover;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.hard h2 {
+  font-size: 40px;
+}
+
+.hard .card {
+  height: 80px;
+  width: 70px;
+}
+
+.hard .card-container {
+  width: 320px;
+}
+
 .hard button {
-  background-color: red;
+  background-color: #a85e32;
+}
+
+.hard .start-btn,
+.hard .reset-btn {
+  font-family: "Creepster", cursive;
+  font-size: 16px;
+  height: 40px;
+  width: 70px;
+}
+
+.hard .timer {
+  font-size: 25px;
+}
+
+.hard .level-btn,
+.hard .mute-btn {
+  height: 40px;
+  width: 70px;
+  margin: 10px;
+}
+
+.hard .game-control {
+  gap: 20px;
+}
+
+.hard .level-btn {
+  display: wrap;
+}
+
+.hard #go-btn {
+  color: #bf4c0a;
+  background-color: #fcc09d;
+  font-family: "Creepster", cursive;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.hard .card .back {
+  background-color: #e6a783;
+  background-image: url(assets/hard/boo.png);
+  background-size: cover;
 }
 
 .playing-game {
@@ -95,43 +222,6 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.easy .level-btn,
-.easy .mute-btn {
-  width: 67px;
-  height: 43px;
-  color: white;
-  text-shadow: 0 0 5px white;
-  box-shadow: 0px 4px 0 #a049ab7d;
-  font-family: "CuteJellyFish";
-}
-
-.easy .start-btn,
-.easy .reset-btn {
-  background-color: rgb(245, 180, 245);
-  color: white;
-  text-shadow: 0 0 5px white;
-  box-shadow: 0px 4px 0 #a049ab7d;
-  border-radius: 10px;
-  padding: 5px 10px;
-}
-
-.easy .timer {
-  color: white;
-  text-shadow: 0 0 3px #ff57fd;
-  font-size: larger;
-}
-
-.easy h2 {
-  background-color: rgb(245, 180, 245);
-  color: white;
-  text-shadow: 0 0 5px white;
-  box-shadow: 0px 4px 0 #a049ab7d;
-  border-radius: 10px;
-  padding: 8px 40px;
-  font-size: xx-large;
-  font-family: "CuteJellyFish";
 }
 
 .choosing-level {
@@ -162,15 +252,6 @@ body {
   border-radius: 10px;
 }
 
-.easy .card {
-  width: 75px;
-  height: 75px;
-}
-
-.easy .card-container {
-  width: 340px;
-}
-
 .go-btn {
   padding: 10px 40px;
   border-radius: 5px;
@@ -182,6 +263,9 @@ body {
 
 .result {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   height: 400px;
   width: 250px;
@@ -196,11 +280,13 @@ body {
 .lose {
   display: none;
   position: absolute;
+  text-align: center;
 }
 
 .game-control {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 
@@ -241,10 +327,7 @@ body {
 
 .card .back {
   transform: rotateY(0deg);
-  background-color: rgb(255, 208, 216);
-  background-image: url(assets/easy/Untitled_Artwork.png);
-  background-size: cover;
-  box-shadow: 2px 3px 2px #ffc2f987;
+  background-color: pink;
 }
 
 .flipped .front {
@@ -280,5 +363,15 @@ body {
     height: 131px;
     width: 230px;
     perspective: 500px;
+  }
+
+  .hard .card {
+    height: 150px;
+    width: 150px;
+    perspective: 500px;
+  }
+
+  .hard .card-container {
+    width: 960px;
   }
 }
