@@ -23,22 +23,22 @@ const mediumMusic = document.getElementById("medium-music");
 
 // FUNCTIONS AND EVENTS ------------
 const imageArrayHard = [
-  "assets/hard/hard-boo.jpg",
-  "assets/hard/hard-boo.jpg",
-  "assets/hard/hard-cutie.jpg",
-  "assets/hard/hard-cutie.jpg",
-  "assets/hard/hard-scarecrow.jpg",
-  "assets/hard/hard-scarecrow.jpg",
-  "assets/hard/hard-plaid.jpg",
-  "assets/hard/hard-plaid.jpg",
-  "assets/hard/hard-pumpkin.jpg",
-  "assets/hard/hard-pumpkin.jpg",
-  "assets/hard/hard-pumpkinboy.jpg",
-  "assets/hard/hard-pumpkinboy.jpg",
-  "assets/hard/hard-redscarf.jpg",
-  "assets/hard/hard-redscarf.jpg",
-  "assets/hard/hard-spooky.jpg",
-  "assets/hard/hard-spooky.jpg",
+  "assets/hard/hard-boo.png",
+  "assets/hard/hard-boo.png",
+  "assets/hard/hard-cute.png",
+  "assets/hard/hard-cute.png",
+  "assets/hard/hard-garden.png",
+  "assets/hard/hard-garden.png",
+  "assets/hard/hard-nature.png",
+  "assets/hard/hard-nature.png",
+  "assets/hard/hard-pumpkin.png",
+  "assets/hard/hard-pumpkin.png",
+  "assets/hard/hard-red.png",
+  "assets/hard/hard-red.png",
+  "assets/hard/hard-straw.png",
+  "assets/hard/hard-straw.png",
+  "assets/hard/hard-wizard.png",
+  "assets/hard/hard-wizard.png",
 ];
 
 //16
