@@ -63,8 +63,8 @@ const imageArrayMedium = [
 //12
 
 const imageArrayEasy = [
-  "assets/puppy.jpg",
-  "assets/puppy.jpg",
+  "assets/easy/hello-kitty.jpg",
+  "assets/easy/hello-kitty.jpg",
   "assets/kitten.jpg",
   "assets/kitten.jpg",
   "assets/frog.jpg",
@@ -127,6 +127,7 @@ choosingLevel.addEventListener("click", (e) => {
   if (e.target.classList.contains("easy-btn")) {
     main.classList.remove("medium", "hard");
     main.classList.add("easy");
+    e.target.classList.toggle("level-emphasize");
     determineBoardArray();
   }
   if (e.target.classList.contains("medium-btn")) {
