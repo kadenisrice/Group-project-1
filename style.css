@@ -35,12 +35,9 @@ button {
 }
 
 .easy h2 {
-  background-color: rgb(245, 180, 245);
   color: white;
-  text-shadow: 0 0 5px white;
-  box-shadow: 0px 4px 0 #a049ab7d;
+  text-shadow: 0 0 20px rgb(255 118 255);
   border-radius: 10px;
-  padding: 8px 40px;
   margin-top: 40px;
   font-size: xx-large;
   font-family: "CuteJellyFish";
@@ -123,6 +120,12 @@ button {
   font-family: "CuteJellyFish";
 }
 
+.easy .level-btn:hover,
+.easy .mute-btn:hover {
+  background-color: rgb(212, 156, 212);
+  box-shadow: 0px 4px 0 #7032797d;
+}
+
 .easy .start-btn,
 .easy .reset-btn {
   background-color: rgb(245, 180, 245);
@@ -132,6 +135,12 @@ button {
   border-radius: 10px;
   padding: 5px 10px;
   font-family: "CuteJellyFish";
+}
+
+.easy .start-btn:hover,
+.easy .reset-btn:hover {
+  background-color: rgb(212, 156, 212);
+  box-shadow: 0px 4px 0 #7032797d;
 }
 
 .easy .timer {
@@ -175,6 +184,11 @@ button {
   padding: 10px 20px;
   font-size: larger;
   font-family: "CuteJellyFish";
+}
+
+.easy .play-again:hover {
+  background-color: rgb(212, 156, 212);
+  box-shadow: 0px 4px 0 #7032797d;
 }
 
 .medium {
