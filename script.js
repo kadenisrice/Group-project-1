@@ -178,7 +178,6 @@ cardContainer.addEventListener("click", (e) => {
   }
   if (e.target.classList.contains("back")) {
     let card = e.target.parentNode;
-    console.dir(card);
     if (!firstClicked) {
       firstClicked = card.querySelector(".front").getAttribute("src");
       firstClickedElement = card; // 1. Store first card element.
@@ -190,16 +189,13 @@ cardContainer.addEventListener("click", (e) => {
       card.classList.add("flipped");
 
       if (firstClicked === secondClicked) {
-        console.log("Match");
         firstClickedElement.classList.add("matched");
         secondClickedElement.classList.add("matched");
 
         if (checkWin(cardNodeList)) {
-          console.log("you won.");
           let timeCompleted = 59 - time;
           // Add score to local storage
           winMessage.textContent = `You did it in ${timeCompleted} seconds!`;
-          console.log(timeCompleted);
           clearInterval(timerInterval);
           setTimeout(() => {
             win.style.display = "block";
@@ -211,7 +207,7 @@ cardContainer.addEventListener("click", (e) => {
         firstClickedElement = null;
         secondClickedElement = null;
       } else {
-        console.log("Not a match");
+        // not a match
         setTimeout(() => {
           firstClickedElement.classList.remove("flipped");
           secondClickedElement.classList.remove("flipped");
@@ -231,9 +227,8 @@ cardContainer.addEventListener("click", (e) => {
 const updateTimer = () => {
   timer.textContent = time > 9 ? `00:${time}` : `00:0${time}`;
   time--;
-  console.log(time);
   if (time < 0) {
-    console.log("You lose");
+    // You lose
     gameActive = false;
     setTimeout(() => {
       lose.style.display = "block";
@@ -247,7 +242,6 @@ function resetBoard() {
   while (cardContainer.firstChild) {
     cardContainer.removeChild(cardContainer.firstChild);
   }
-  // HAAHAHAHAHAHHAHAHAHAHHHAHAHAHAHAHHAHAHA
   firstClicked = null;
   secondClicked = null;
   firstClickedElement = null;
@@ -288,6 +282,7 @@ resultScreen.addEventListener("click", (e) => {
 });
 
 levelBtn.addEventListener("click", () => {
+  resetBoard();
   choosingLevel.style.display = "flex";
   playingGame.style.display = "none";
   resultScreen.style.display = "none";
