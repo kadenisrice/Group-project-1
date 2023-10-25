@@ -19,7 +19,9 @@ const playingGame = document.querySelector(".playing-game");
 const levelBtn = document.querySelector(".level-btn");
 const muteBtn = document.querySelector(".mute-btn");
 const themeTitle = document.querySelector(".theme-title");
+const easyMusic = document.getElementById("easy-music");
 const mediumMusic = document.getElementById("medium-music");
+const hardMusic = document.getElementById("hard-music");
 
 // FUNCTIONS AND EVENTS ------------
 const imageArrayHard = [
@@ -131,23 +133,24 @@ choosingLevel.addEventListener("click", (e) => {
     main.classList.remove("easy", "hard");
     main.classList.add("medium");
     determineBoardArray();
-
-    document.getElementById("medium-music").src =
-      "assets/medium/happy-jungle-song.mp3";
   }
   if (e.target.classList.contains("hard-btn")) {
     main.classList.remove("easy", "medium");
     main.classList.add("hard");
     determineBoardArray();
-
-    document.getElementById("medium-music").src =
-      "assets/hard/mysterious-celesta-114064.mp3";
   }
   if (e.target.classList.contains("go-btn")) {
-    if (main.classList.contains("medium") || main.classList.contains("hard")) {
+    if (main.classList.contains("easy")) {
+      easyMusic.volume = 0.1;
+      easyMusic.play();
+    } else if (main.classList.contains("medium")) {
       mediumMusic.volume = 0.1;
       mediumMusic.play();
+    } else if (main.classList.contains("hard")) {
+      hardMusic.volume = 0.1;
+      hardMusic.play();
     }
+
     choosingLevel.style.display = "none";
     playingGame.style.display = "flex";
     determineBoardArray();
@@ -286,13 +289,27 @@ resultScreen.addEventListener("click", (e) => {
 levelBtn.addEventListener("click", () => {
   choosingLevel.style.display = "flex";
   playingGame.style.display = "none";
-  if (main.classList.contains("medium")) {
+  if (main.classList.contains("easy")) {
+    easyMusic.pause();
+    easyMusic.currentTime = 0;
+  } else if (main.classList.contains("medium")) {
     mediumMusic.pause();
     mediumMusic.currentTime = 0;
+  } else if (main.classList.contains("hard")) {
+    hardMusic.pause();
+    hardMusic.currentTime = 0;
   }
 });
 
 muteBtn.addEventListener("click", () => {
+  easyMusic.muted = !easyMusic.muted;
   mediumMusic.muted = !mediumMusic.muted;
-  muteBtn.textContent = mediumMusic.muted ? "UNMUTE" : " MUTE ";
+  hardMusic.muted = !hardMusic.muted;
+  if (main.classList.contains("easy")) {
+    muteBtn.textContent = easyMusic.muted ? "UNMUTE" : "MUTE";
+  } else if (main.classList.contains("medium")) {
+    muteBtn.textContent = mediumMusic.muted ? "UNMUTE" : " MUTE ";
+  } else if (main.classList.contains("hard")) {
+    muteBtn.textContent = hardMusic.muted ? "UNMUTE" : "MUTE";
+  }
 });
