@@ -131,14 +131,20 @@ choosingLevel.addEventListener("click", (e) => {
     main.classList.remove("easy", "hard");
     main.classList.add("medium");
     determineBoardArray();
+
+    document.getElementById("medium-music").src =
+      "assets/medium/happy-jungle-song.mp3";
   }
   if (e.target.classList.contains("hard-btn")) {
     main.classList.remove("easy", "medium");
     main.classList.add("hard");
     determineBoardArray();
+
+    document.getElementById("medium-music").src =
+      "assets/hard/mysterious-celesta-114064.mp3";
   }
   if (e.target.classList.contains("go-btn")) {
-    if (main.classList.contains("medium")) {
+    if (main.classList.contains("medium") || main.classList.contains("hard")) {
       mediumMusic.volume = 0.1;
       mediumMusic.play();
     }
