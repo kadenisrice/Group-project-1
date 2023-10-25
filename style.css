@@ -601,6 +601,9 @@ button {
 .medium .medium-btn {
 }
 .hard .hard-btn {
+  background-image: url(assets/hard/clown.png);
+  background-size: cover;
+  box-shadow: 4px 5px 8px 5px brown;
 }
 
 @media only screen and (min-width: 768px) {
