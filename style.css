@@ -599,11 +599,23 @@ button {
   background-color: rgb(212, 156, 212);
 }
 .medium .medium-btn {
+  font-family: "Jungle";
+  font-size: 40px;
+  letter-spacing: 3px;
+  height: 87px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px outset black;
+  background-color: rgb(18, 223, 18);
 }
+
 .hard .hard-btn {
   background-image: url(assets/hard/clown.png);
   background-size: cover;
   box-shadow: 4px 5px 8px 5px brown;
+  font-weight: bold;
+  text-shadow: 1px -3px 3px orange;
 }
 
 @media only screen and (min-width: 768px) {

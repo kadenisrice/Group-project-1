@@ -290,6 +290,7 @@ resultScreen.addEventListener("click", (e) => {
 levelBtn.addEventListener("click", () => {
   choosingLevel.style.display = "flex";
   playingGame.style.display = "none";
+  resultScreen.style.display = "none";
   if (main.classList.contains("easy")) {
     easyMusic.pause();
     easyMusic.currentTime = 0;
