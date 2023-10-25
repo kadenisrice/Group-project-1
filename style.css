@@ -387,7 +387,7 @@ main {
 }
 
 .hard .game-control {
-  gap: 20px;
+  gap: 40px;
 }
 
 .hard .level-btn {
@@ -403,9 +403,14 @@ main {
 }
 
 .hard .card .back {
-  background-color: #e6a783;
+  background-color: #e6a995;
   background-image: url(assets/hard/boo.png);
   background-size: cover;
+  
+}
+
+.hard .result {
+  border: 2px solid grey;
 }
 
 .playing-game {
