@@ -20,6 +20,10 @@ main {
   min-height: 100vh;
 }
 
+button {
+  cursor: pointer;
+}
+
 .easy {
   background-image: url(assets/easy/mobile-background-jpeg.jpg);
   background-repeat: no-repeat;
@@ -265,6 +269,7 @@ main {
 .medium .timer {
   font-size: 30px;
   padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   box-shadow: 0px 0px 16px 7px black;
   text-shadow: 0px -2px 4px black;
@@ -274,14 +279,50 @@ main {
   gap: 40px;
 }
 
+.medium .start-btn,
+.medium .reset-btn,
+.medium .play-again {
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background-color: #28a745; /* Bootstrap success green */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* A subtle box shadow */
+}
+
+.medium .start-btn:hover,
+.medium .reset-btn:hover,
+.medium .play-again {
+  background-color: #218838; /* A darker green for hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly more pronounced box shadow on hover */
+}
+
+.medium .start-btn:active,
+.medium .reset-btn:active,
+.medium .play-again {
+  background-color: #1e7e34; /* Even darker green for active/clicked state */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Less pronounced box shadow for a pressed down effect */
+  transform: scale(0.9); /* Slightly scale down the button when pressed */
+}
+
 .medium .card-container {
-  width: 390px;
+  width: 414px;
   padding: 0;
 }
 
 .medium .card {
   height: 69px;
   width: 120px;
+}
+
+.medium .card .back {
+  background-image: url(assets/medium/card-bark-2.png);
+  background-size: cover;
+  border: 3px solid black;
 }
 
 .medium button {
@@ -406,7 +447,6 @@ main {
   background-color: #e6a995;
   background-image: url(assets/hard/boo.png);
   background-size: cover;
-  
 }
 
 .hard .result {
